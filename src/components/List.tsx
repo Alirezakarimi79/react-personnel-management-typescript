@@ -1,24 +1,12 @@
 import React, { FC } from 'react';
 
-interface IStates {
-    peoples: {
-        id: number,
-        fullName: string,
-        age: number,
-        img_url: string,
-        bio?: string
-    }[]
-};
+import { IProps } from '../utils/interfaces';
 
-interface IProps {
-    peoples: IStates["peoples"]
-}
-
-const List: FC<IProps> = ({ peoples }) => {
+const List: FC<IProps["list"]> = ({ peoples }) => {
 
     const renderedList = (): JSX.Element[] => (
         peoples.map((people) => (
-            <div className='col-12 col-lg-6'>
+            <div key={people.id} className='col-12 col-lg-6 mb-2'>
                 <div className='card'>
                     <div className='card-body d-flex align-items-center'>
                         <img className='img-fluid rounded img-thumbnail' width={100} height={100} src={people.img_url} alt={people.fullName} />
@@ -37,7 +25,7 @@ const List: FC<IProps> = ({ peoples }) => {
 
 
     return (
-        <div>{renderedList()}</div>
+        <div className='row'>{renderedList()}</div>
     )
 }
 
