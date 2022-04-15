@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 
 import List from '../components/List';
-interface IStates {
-  peoples: {
-    id: number,
-    fullName: string,
-    age: number,
-    img_url: string,
-    bio?: string
-  }[]
-}
+import { IStates } from '../utils/interfaces';
+import AddPeople from '../components/AddPeople';
 
 const App = () => {
 
@@ -26,6 +19,7 @@ const App = () => {
     <div className='container'>
       <h2 className='alert alert-info'>مدیریت  کننده اشخاص</h2>
       <List peoples={peoples} />
+      <AddPeople peoples={peoples} setPeoples={setPeoples} />
     </div>
   )
 }
