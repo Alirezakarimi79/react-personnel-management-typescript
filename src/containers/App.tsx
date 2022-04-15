@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-interface IState {
+import List from '../components/List';
+interface IStates {
   peoples: {
     id: number,
     fullName: string,
@@ -12,17 +13,20 @@ interface IState {
 
 const App = () => {
 
-  const [peoples, setPeoples] = useState<IState["peoples"]>([{
+  const [peoples, setPeoples] = useState<IStates["peoples"]>([{
     id: 1,
     fullName: "علیرضا کریمی",
     age: 21,
-    img_url: "../../public/assets/images/photo_2022-04-07_16-52-00.jpg",
+    img_url: "https://avatars.githubusercontent.com/u/87535227?v=4",
     bio: "طراح و توسعه دهنده وب اپلیکیشن ها"
   }])
 
 
   return (
-    <div>App</div>
+    <div className='container'>
+      <h2 className='alert alert-info'>مدیریت  کننده اشخاص</h2>
+      <List peoples={peoples} />
+    </div>
   )
 }
 
