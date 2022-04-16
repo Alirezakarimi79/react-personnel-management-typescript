@@ -18,7 +18,7 @@ const App = () => {
   return (
     <div className='container'>
       <h2 className='alert alert-info'>مدیریت  کننده اشخاص</h2>
-      <List peoples={peoples} />
+      <List peoples={peoples} setPeoples={setPeoples} />
       <AddPeople peoples={peoples} setPeoples={setPeoples} />
     </div>
   )
