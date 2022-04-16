@@ -1,8 +1,15 @@
 import React, { FC } from 'react';
+import { AiOutlineUserDelete } from "react-icons/ai";
 
-import { IProps } from '../utils/interfaces';
+import { IProps, IStates } from '../utils/interfaces';
 
-const List: FC<IProps["list"]> = ({ peoples }) => {
+const List: FC<IProps["listAndAddPeoples"]> = ({ peoples, setPeoples }) => {
+
+    const handleDeletePeoples = (id: number): void => {
+        const persons: IStates["peoples"] = [...peoples];
+        const filteredPeoples = persons.filter((people) => people.id !== id);
+        setPeoples(filteredPeoples);
+    }
 
     const renderedList = (): JSX.Element[] => (
         peoples.map((people) => (
@@ -17,6 +24,9 @@ const List: FC<IProps["list"]> = ({ peoples }) => {
                             </p>
                             <p className='text-muted'>{people.bio}</p>
                         </div>
+                    </div>
+                    <div className='operation_btns'>
+                        <AiOutlineUserDelete className='text-danger m-1' size={30} onClick={() => handleDeletePeoples(people.id)} />
                     </div>
                 </div>
             </div>

@@ -11,8 +11,7 @@ export interface IStates {
   }
   
   export interface IProps {
-   list:{peoples: IStates["peoples"]} ,
-   addPeoples:{
+   listAndAddPeoples:{
     peoples: IStates["peoples"],
      setPeoples: Dispatch<SetStateAction<IStates["peoples"]>>
    }

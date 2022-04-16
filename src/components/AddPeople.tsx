@@ -2,7 +2,7 @@ import React, { FC, FormEvent, useState } from 'react'
 
 import { IProps } from '../utils/interfaces'
 
-const AddPeople: FC<IProps["addPeoples"]> = ({ peoples, setPeoples }) => {
+const AddPeople: FC<IProps["listAndAddPeoples"]> = ({ peoples, setPeoples }) => {
 
     const [fullName, setFullName] = useState<string>("");
     const [age, setAge] = useState<number | string>("");
@@ -40,11 +40,42 @@ const AddPeople: FC<IProps["addPeoples"]> = ({ peoples, setPeoples }) => {
 
     return (
         <div className='col-md-6 col-lg-6 mx-auto'>
-            <form className='mt-3' autoComplete='off' onSubmit={(event) => handleSubmitForm(event)}>
-                <input type="text" className='form-control mb-2' name="fullName" placeholder='نام و نام خانوادگی' value={fullName} onChange={(e) => setFullName(e.target.value)} />
-                <input type="number" className='form-control mb-2' name="age" placeholder='سن' value={age} onChange={(e) => setAge(e.target.value)} />
-                <input type="text" className='form-control mb-2' name="img_url" placeholder='ادرس عکس پروفایل' value={img_url} onChange={(e) => setImg_url(e.target.value)} />
-                <textarea rows={7} className='form-control mb-2' name="bio" placeholder='توضیحات و بیوگرافی' value={bio} onChange={(e) => setBio(e.target.value)} />
+            <form
+                className='mt-3'
+                autoComplete='off'
+                onSubmit={(event) => handleSubmitForm(event)}
+            >
+                <input
+                    type="text"
+                    className='form-control mb-2'
+                    name="fullName"
+                    placeholder='نام و نام خانوادگی'
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                />
+                <input
+                    type="number"
+                    className='form-control mb-2'
+                    name="age"
+                    placeholder='سن'
+                    value={age}
+                    onChange={(e) => setAge(e.target.value)}
+                />
+                <input
+                    type="text"
+                    className='form-control mb-2'
+                    name="img_url"
+                    placeholder='ادرس عکس پروفایل'
+                    value={img_url}
+                    onChange={(e) => setImg_url(e.target.value)}
+                />
+                <textarea
+                    rows={7}
+                    className='form-control mb-2'
+                    name="bio" placeholder='توضیحات و بیوگرافی'
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
+                />
                 <button className='btn btn-success btn-lg'>افزودن به لیست</button>
             </form>
         </div>
